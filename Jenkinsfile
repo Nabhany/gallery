@@ -17,15 +17,21 @@ pipeline {
    stage('Install Dependencies') {
        steps {
                sh 'npm install'
-               sh 'npm install --save express'
-               sh 'npm install --global yarn'
             }
     }
     
-    stage('Build the project') {
+    stage('Testing Phase') {
       steps { 
-        sh 'npm run build'
+        sh 'npm run test'
       }
     }
+
+     stage('Slack send message'){
+            steps{
+        
+                slackSend message: ''
+                slackSend message: "Running JK Build Id: ${env.BUILD_ID} on ${env.JENKINS_URL}"
+            }
+        }
    }
   }
