@@ -35,9 +35,7 @@
       }
     }
 
-   }
-
-post{
+  post{
         success{
         
         slackSend message: 'link to code is gallerymoringa.herokuapp.com'
@@ -50,5 +48,5 @@ post{
 
         }
     }
-
+   }
   }
