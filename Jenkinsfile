@@ -34,8 +34,9 @@
         sh 'npm run build'
       }
     }
+   }
 
-  post{
+    post{
         success{
         
         slackSend message: 'link to code is gallerymoringa.herokuapp.com'
@@ -48,5 +49,5 @@
 
         }
     }
-   }
+
   }
