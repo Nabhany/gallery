@@ -36,18 +36,15 @@
     }
    }
 
-    post{
-        success{
-        
-        slackSend message: 'link to code is gallerymoringa.herokuapp.com'
-        slackSend message: "Running JK Build Id: ${env.BUILD_ID} on ${env.JENKINS_URL}"
-
-        }failure{
-        
-        slackSend message: 'Failed to build'
-        slackSend message: "Running JK Build Id: ${env.BUILD_ID} on ${env.JENKINS_URL}"
-
-        }
-    }
-
+  post {
+  always {
+    slackSend message: 'link to code is gallerymoringa.herokuapp.com'
+    slackSend message: "Running JK Build Id: ${env.BUILD_ID} on ${env.JENKINS_URL}"
   }
+  failure {
+    slackSend message: 'Failed to build'
+    slackSend message: "Running JK Build Id: ${env.BUILD_ID} on ${env.JENKINS_URL}"
+  }
+}
+
+}
